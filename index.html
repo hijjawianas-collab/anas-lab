@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huna — Sell your shop online in Jordan</title>
+<style>
+  :root {
+    --ink: #14201c;
+    --muted: #5b6b64;
+    --line: #e2e8e5;
+    --brand: #0f7a5a;
+    --bg: #fbfaf7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+  }
+  .brand {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin: 0 0 28px;
+  }
+  h1 {
+    font-size: 34px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .lead {
+    font-size: 17px;
+    color: var(--muted);
+    margin: 0 0 36px;
+  }
+  .cards {
+    display: grid;
+    gap: 14px;
+    margin: 0 0 36px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .card h2 {
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .card p {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .cta {
+    display: block;
+    background: var(--brand);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px 24px;
+    border-radius: 14px;
+  }
+  .cta:active { background: #0b6047; }
+  .note {
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    margin: 14px 0 0;
+  }
+  @media (min-width: 560px) {
+    h1 { font-size: 42px; }
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .cta { max-width: 340px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="brand">Huna</p>
+
+    <h1>Your shop, open online across Jordan.</h1>
+
+    <p class="lead">
+      Huna is a marketplace for small shops in Jordan. List what you already
+      have on your shelves, reach buyers outside your street, and take orders
+      from your phone. No website to build, no monthly fee to start.
+    </p>
+
+    <div class="cards">
+      <section class="card">
+        <h2>Set up in one day</h2>
+        <p>Send us your products by WhatsApp. We put your shop online for you.</p>
+      </section>
+      <section class="card">
+        <h2>New customers</h2>
+        <p>Buyers looking for your products find your shop, not just the big names.</p>
+      </section>
+      <section class="card">
+        <h2>Get paid simply</h2>
+        <p>Cash on delivery or online payment. Your money, tracked in one place.</p>
+      </section>
+    </div>
+
+    <a class="cta" href="https://wa.me/[YOUR NUMBER]?text=I%20want%20to%20sell%20on%20Huna">
+      Start selling on Huna
+    </a>
+    <p class="note">Opens WhatsApp. We reply during working hours.</p>
+  </main>
+</body>
+</html>
