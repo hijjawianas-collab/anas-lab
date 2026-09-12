@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anas Hijjawi — Management Consulting</title>
+<meta name="description" content="Independent management consulting for owner-led businesses. Business growth, profit maximization and business resilience.">
+<meta name="theme-color" content="#000000">
+
+<!--
+  ============================================================
+  EDIT ME: put your WhatsApp number in ONE place only.
+  Find the line   var WHATSAPP_NUMBER = "962700000000";
+  near the bottom of this file and replace the digits with your
+  own number in international format, no "+", no spaces.
+  Example for Jordan: 962791234567
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #000000;
+    --ink: #ffffff;
+    --muted: rgba(255, 255, 255, 0.62);
+    --faint: rgba(255, 255, 255, 0.42);
+    --line: rgba(255, 255, 255, 0.12);
+    --line-soft: rgba(255, 255, 255, 0.07);
+    --panel: rgba(255, 255, 255, 0.028);
+    --violet: #a100ff;
+    --indigo: #6e4bff;
+    --cyan: #00d4ff;
+    --accent-grad: linear-gradient(90deg, #a100ff 0%, #6e4bff 48%, #00d4ff 100%);
+    --pad: clamp(20px, 5vw, 64px);
+    --maxw: 1160px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ---------- background layers ---------- */
+
+  #stardust {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .glow {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.5;
+  }
+  .glow-a {
+    top: -18vh;
+    right: -14vw;
+    width: 62vw;
+    height: 62vw;
+    max-width: 760px;
+    max-height: 760px;
+    background: radial-gradient(circle, rgba(161, 0, 255, 0.30) 0%, rgba(161, 0, 255, 0) 68%);
+  }
+  .glow-b {
+    bottom: -22vh;
+    left: -18vw;
+    width: 70vw;
+    height: 70vw;
+    max-width: 820px;
+    max-height: 820px;
+    background: radial-gradient(circle, rgba(0, 120, 255, 0.24) 0%, rgba(0, 120, 255, 0) 70%);
+  }
+
+  .grid-lines {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 25vw 100%;
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  /* ---------- shared layout ---------- */
+
+  .layer { position: relative; z-index: 1; }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+
+  section { padding-block: clamp(56px, 7vw, 104px); }
+
+  .rule {
+    height: 1px;
+    background: var(--line-soft);
+    border: 0;
+    margin: 0;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 22px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 2px;
+    background: var(--accent-grad);
+  }
+
+  @media (max-width: 430px) {
+    .eyebrow { font-size: 10px; letter-spacing: 0.14em; }
+    .eyebrow::before { width: 18px; }
+  }
+
+  .chev {
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+  }
+
+  h1, h2, h3 { font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin: 0; }
+
+  h2 { font-size: clamp(28px, 5vw, 46px); }
+
+  .section-lead {
+    font-size: clamp(15px, 2.2vw, 18px);
+    color: var(--muted);
+    max-width: 58ch;
+    margin: 18px 0 0;
+  }
+
+  /* ---------- header ---------- */
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .wordmark span.sub {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--faint);
+  }
+  .header-cta {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 9px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .header-cta:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.05); }
+  @media (max-width: 520px) { .wordmark span.sub { display: none; } }
+
+  /* ---------- hero ---------- */
+
+  .hero { padding-block: clamp(64px, 11vw, 132px) clamp(48px, 6vw, 84px); }
+
+  .hero h1 {
+    font-size: clamp(38px, 8.2vw, 82px);
+    font-weight: 600;
+    max-width: 15ch;
+    margin: 0 0 26px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lead {
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 40px;
+    font-weight: 300;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    background: var(--ink);
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 17px 30px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(161, 0, 255, 0);
+  }
+  .btn-wa svg { width: 20px; height: 20px; flex: none; }
+  .btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(161, 0, 255, 0.35);
+  }
+  .btn-wa:active { transform: translateY(0); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 24px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: border-color 0.25s ease;
+  }
+  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.42); }
+
+  .hero-marks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    margin: 48px 0 0;
+    padding: 26px 0 0;
+    border-top: 1px solid var(--line-soft);
+    list-style: none;
+  }
+  .hero-marks li {
+    font-size: 12px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  /* ---------- pillars ---------- */
+
+  .pillars {
+    display: grid;
+    gap: 1px;
+    margin-top: clamp(40px, 6vw, 64px);
+    background: var(--line-soft);
+    border-block: 1px solid var(--line-soft);
+  }
+  @media (min-width: 860px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+
+  .pillar {
+    background: var(--bg);
+    padding: clamp(28px, 4vw, 40px) clamp(22px, 3vw, 34px) clamp(34px, 4vw, 44px);
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-grad);
+    transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .pillar:hover::before, .pillar:focus-within::before { width: 100%; }
+
+  .pillar-num {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--faint);
+  }
+  .pillar h3 {
+    font-size: clamp(22px, 3vw, 27px);
+    margin: 16px 0 8px;
+  }
+  .pillar .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+  }
+  .pillar p.what {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 22px;
+  }
+  .pillar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .pillar li {
+    font-size: 14.5px;
+    color: var(--muted);
+    padding: 13px 0 13px 20px;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    line-height: 1.5;
+  }
+  .pillar li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: var(--cyan);
+    font-size: 15px;
+  }
+
+  /* ---------- method ---------- */
+
+  .steps {
+    display: grid;
+    gap: 0;
+    margin-top: clamp(40px, 6vw, 64px);
+    counter-reset: step;
+  }
+  @media (min-width: 900px) {
+    .steps { grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-soft); }
+    .step { background: var(--bg); padding: 34px 26px 40px; border-top: 1px solid var(--line); }
+  }
+  .step {
+    padding: 26px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .step:first-child { border-top-color: var(--line); }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--faint);
+    margin-bottom: 14px;
+  }
+  .step-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-grad);
+    box-shadow: 0 0 12px rgba(161, 0, 255, 0.9);
+  }
+  .step h3 { font-size: clamp(19px, 2.6vw, 23px); margin: 0 0 10px; }
+  .step p { font-size: 14.5px; color: var(--muted); margin: 0; }
+
+  /* ---------- engagements ---------- */
+
+  .ways {
+    display: grid;
+    gap: 16px;
+    margin-top: clamp(40px, 6vw, 56px);
+  }
+  @media (min-width: 860px) { .ways { grid-template-columns: repeat(3, 1fr); } }
+
+  .way {
+    background: var(--panel);
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    padding: 28px 26px 30px;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  }
+  .way:hover {
+    border-color: rgba(255, 255, 255, 0.26);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+  }
+  .way .len {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .way h3 { font-size: 21px; margin: 12px 0 10px; }
+  .way p { font-size: 14.5px; color: var(--muted); margin: 0; }
+
+  /* ---------- closing cta ---------- */
+
+  .close-band {
+    border-top: 1px solid var(--line-soft);
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(161, 0, 255, 0.16) 0%, rgba(0, 0, 0, 0) 62%);
+  }
+  .close-inner { text-align: center; }
+  .close-inner h2 { max-width: 18ch; margin: 0 auto; }
+  .close-inner p {
+    font-size: clamp(15px, 2.2vw, 18px);
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 20px auto 36px;
+    font-weight: 300;
+  }
+  .close-inner .btn-wa { font-size: 17px; padding: 19px 34px; }
+  .close-note {
+    font-size: 13px;
+    color: var(--faint);
+    margin: 20px 0 0;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding-block: 34px 40px;
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--faint);
+  }
+  .footer-inner a { color: var(--muted); text-decoration: none; }
+  .footer-inner a:hover { color: var(--ink); }
+
+  /* ---------- reveal on scroll ---------- */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn-wa:hover, .way:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stardust" aria-hidden="true"></canvas>
+<div class="glow glow-a" aria-hidden="true"></div>
+<div class="glow glow-b" aria-hidden="true"></div>
+<div class="grid-lines" aria-hidden="true"></div>
+
+<div class="layer">
+
+  <header>
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top">
+        Anas Hijjawi <span class="sub">Consulting</span>
+      </a>
+      <a class="header-cta" data-wa href="https://wa.me/962700000000">Talk on WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Independent Management Consulting</p>
+        <h1>Grow the revenue. Keep more of it. <em>Build a business that holds.</em></h1>
+        <p class="lead">
+          I work with owners and leadership teams on three things: growing revenue,
+          taking more profit out of the revenue you already have, and making the
+          business steady enough to survive a bad quarter. The work is hands-on,
+          done with your people, and it ends with your team running it without me.
+        </p>
+        <div class="cta-row">
+          <a class="btn-wa" data-wa href="https://wa.me/962700000000">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.24 8.23z"/></svg>
+            Message me on WhatsApp
+          </a>
+          <a class="btn-ghost" href="#areas"><span class="chev">&gt;</span> See how I work</a>
+        </div>
+        <ul class="hero-marks">
+          <li>Owner-led businesses</li>
+          <li>Hands-on delivery</li>
+          <li>Fixed scope before fixed fee</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- THREE AREAS -->
+    <section id="areas">
+      <div class="wrap">
+        <p class="eyebrow">The Practice</p>
+        <h2>Three areas. One connected picture.</h2>
+        <p class="section-lead">
+          Most problems in a business get treated one at a time. Growth is chased
+          without checking margin. Cost is cut until the business cannot deliver.
+          I look at all three together, because a change in one always moves the
+          other two.
+        </p>
+      </div>
+
+      <div class="wrap">
+        <div class="pillars">
+
+          <article class="pillar reveal">
+            <span class="pillar-num">01</span>
+            <span class="tag" style="display:block;margin-top:14px;">Revenue</span>
+            <h3>Business Growth</h3>
+            <p class="what">
+              Find the demand you are already close to, then build a repeatable way
+              to win it. Growth that depends on one person having a good month is
+              not growth.
+            </p>
+            <ul>
+              <li>Where the money really comes from: customers, products, channels, margin by segment</li>
+              <li>Pricing and packaging that match the value you deliver</li>
+              <li>A sales process that still works when the owner is not in the room</li>
+              <li>Entering a new segment or market through a small, testable first step</li>
+              <li>Keeping the customers you have: retention, repeat, and win-back</li>
+            </ul>
+          </article>
+
+          <article class="pillar reveal">
+            <span class="pillar-num">02</span>
+            <span class="tag" style="display:block;margin-top:14px;">Efficiency</span>
+            <h3>Profit Maximization</h3>
+            <p class="what">
+              Same revenue, more of it left at the bottom. In most businesses the
+              profit is already there, sitting inside cost, waste, rework and slow
+              cash.
+            </p>
+            <ul>
+              <li>Cost base read line by line, split into what creates value and what does not</li>
+              <li>Process redesign where the delays, handovers and rework actually live</li>
+              <li>Working capital: inventory, receivables, payment terms, cash cycle</li>
+              <li>Automation for the work your team repeats every single week</li>
+              <li>Buying better: suppliers, contracts, and what you should stop paying for</li>
+            </ul>
+          </article>
+
+          <article class="pillar reveal">
+            <span class="pillar-num">03</span>
+            <span class="tag" style="display:block;margin-top:14px;">Governance</span>
+            <h3>Business Resilience</h3>
+            <p class="what">
+              A business that survives a bad quarter, a key person leaving, or an
+              audit. Resilience is not paperwork. It is knowing who decides what,
+              on what information, and by when.
+            </p>
+            <ul>
+              <li>Decision rights: who decides what, and with which numbers in front of them</li>
+              <li>A management routine: the report, the meeting, the follow-through</li>
+              <li>Risk register and controls sized to your business, not a corporate template</li>
+              <li>Documented processes and cover for roles only one person can do</li>
+              <li>Cash and scenario planning, so a shock is a plan and not a surprise</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section id="method">
+      <div class="wrap">
+        <p class="eyebrow">The Method</p>
+        <h2>Diagnose. Prioritise. Build. Hand over.</h2>
+        <p class="section-lead">
+          The same four steps every time, whatever the size of the business. Each
+          step ends with something you can hold: a written finding, an agreed list,
+          a working change, a routine your team owns.
+        </p>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step-num"><span class="step-dot"></span>01</span>
+            <h3>Diagnose</h3>
+            <p>
+              Two to three weeks. I read the numbers, sit with the team, and walk
+              the process from first contact to cash in the bank. You get a written
+              picture of the business as it runs, not as the org chart describes it.
+            </p>
+          </article>
+
+          <article class="step reveal">
+            <span class="step-num"><span class="step-dot"></span>02</span>
+            <h3>Prioritise</h3>
+            <p>
+              We rank every opportunity by cash impact against effort and risk, then
+              agree a short list. Most businesses have twenty good options and the
+              capacity to do four of them properly.
+            </p>
+          </article>
+
+          <article class="step reveal">
+            <span class="step-num"><span class="step-dot"></span>03</span>
+            <h3>Build</h3>
+            <p>
+              We implement together, in short cycles, each one with a result you can
+              measure. I work inside the business alongside your people. The output
+              is a change that runs, not a deck that sits in a drawer.
+            </p>
+          </article>
+
+          <article class="step reveal">
+            <span class="step-num"><span class="step-dot"></span>04</span>
+            <h3>Hand over</h3>
+            <p>
+              The routine, the numbers and a named owner for each change stay with
+              your team. We agree what good looks like in ninety days. Success is
+              you not needing me.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAYS TO WORK -->
+    <section id="work">
+      <div class="wrap">
+        <p class="eyebrow">Ways To Work Together</p>
+        <h2>Start small. Go deeper only if it earns it.</h2>
+        <p class="section-lead">
+          Scope and fee are agreed before anything starts. No open-ended hours.
+        </p>
+
+        <div class="ways">
+          <article class="way reveal">
+            <span class="len">Two to three weeks</span>
+            <h3>Diagnostic Sprint</h3>
+            <p>
+              A full read of the business and a prioritised plan with the numbers
+              behind it. Fixed scope, fixed fee. You can take the plan and run it
+              yourself.
+            </p>
+          </article>
+
+          <article class="way reveal">
+            <span class="len">Three to six months</span>
+            <h3>Improvement Programme</h3>
+            <p>
+              We work the plan together, one area at a time, with your team doing
+              the delivery. Reviewed monthly against the result we agreed, not
+              against activity.
+            </p>
+          </article>
+
+          <article class="way reveal">
+            <span class="len">Ongoing, monthly</span>
+            <h3>Advisory Retainer</h3>
+            <p>
+              A steady rhythm with you and the leadership team: review the numbers,
+              unblock the decisions, keep the plan moving. For owners who want a
+              second read before they commit.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="close-band">
+      <div class="wrap close-inner">
+        <p class="eyebrow" style="justify-content:center;">Start Here</p>
+        <h2>One message is enough to start.</h2>
+        <p>
+          Send me a WhatsApp with one line about your business and what is not
+          working right now. I will tell you what I would look at first. If I am
+          not the right person for it, I will say so.
+        </p>
+        <a class="btn-wa" data-wa href="https://wa.me/962700000000">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.23-8.24 8.23z"/></svg>
+          Message me on WhatsApp
+        </a>
+        <p class="close-note">Opens WhatsApp. I reply during working hours.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Anas Hijjawi &middot; Management Consulting</span>
+      <span><a data-wa href="https://wa.me/962700000000">WhatsApp</a></span>
+      <span>&copy; <span id="year">2026</span></span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ======================================================
+     YOUR WHATSAPP NUMBER — international format, digits only.
+     No "+", no spaces, no dashes.  Jordan example: 962791234567
+     ====================================================== */
+  var WHATSAPP_NUMBER = "962700000000";
+  var WHATSAPP_MESSAGE = "Hello Anas, I saw your consulting page. I would like to talk about my business.";
+
+  var link = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+  var waLinks = document.querySelectorAll("[data-wa]");
+  for (var i = 0; i < waLinks.length; i++) {
+    waLinks[i].setAttribute("href", link);
+    waLinks[i].setAttribute("target", "_blank");
+    waLinks[i].setAttribute("rel", "noopener");
+  }
+
+  var yearEl = document.getElementById("year");
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (reduced || !("IntersectionObserver" in window)) {
+    for (var r = 0; r < revealEls.length; r++) { revealEls[r].classList.add("in"); }
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, idx) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          setTimeout(function () { el.classList.add("in"); }, idx * 90);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    for (var k = 0; k < revealEls.length; k++) { io.observe(revealEls[k]); }
+  }
+
+  /* ---------- stardust ---------- */
+  var canvas = document.getElementById("stardust");
+  if (!canvas || !canvas.getContext) { return; }
+  var ctx = canvas.getContext("2d");
+
+  var W = 0, H = 0, dpr = 1;
+  var particles = [];
+  var streaks = [];
+  var nextStreak = 3000;
+  var lastTime = 0;
+  var pointer = { x: 0.5, y: 0.5, active: false };
+
+  var PALETTE = [
+    "255, 255, 255",
+    "225, 205, 255",
+    "185, 225, 255",
+    "205, 175, 255"
+  ];
+
+  function rand(min, max) { return min + Math.random() * (max - min); }
+
+  function build() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var area = W * H;
+    var count = Math.round(Math.min(170, Math.max(45, area / 11000)));
+    particles = [];
+    for (var i = 0; i < count; i++) {
+      var depth = rand(0.25, 1);
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        depth: depth,
+        r: rand(0.35, 1.7) * depth + 0.25,
+        vx: rand(0.04, 0.22) * depth,
+        vy: -rand(0.05, 0.26) * depth,
+        phase: Math.random() * Math.PI * 2,
+        speed: rand(0.006, 0.022),
+        color: PALETTE[Math.floor(Math.random() * PALETTE.length)],
+        base: rand(0.22, 0.85)
+      });
+    }
+  }
+
+  function spawnStreak() {
+    var fromLeft = Math.random() < 0.5;
+    streaks.push({
+      x: fromLeft ? rand(-0.1, 0.4) * W : rand(0.6, 1.1) * W,
+      y: rand(0.05, 0.55) * H,
+      vx: (fromLeft ? 1 : -1) * rand(3.2, 5.4),
+      vy: rand(1.1, 2.2),
+      life: 0,
+      max: rand(70, 110),
+      len: rand(60, 130)
+    });
+  }
+
+  function drawStreaks() {
+    for (var i = streaks.length - 1; i >= 0; i--) {
+      var s = streaks[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.life++;
+
+      var t = s.life / s.max;
+      if (t >= 1) { streaks.splice(i, 1); continue; }
+
+      var fade = Math.sin(Math.PI * t);
+      var nx = s.x - s.vx * (s.len / 6);
+      var ny = s.y - s.vy * (s.len / 6);
+
+      var grad = ctx.createLinearGradient(nx, ny, s.x, s.y);
+      grad.addColorStop(0, "rgba(180, 210, 255, 0)");
+      grad.addColorStop(1, "rgba(235, 225, 255, " + (fade * 0.55).toFixed(3) + ")");
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.1;
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(nx, ny);
+      ctx.lineTo(s.x, s.y);
+      ctx.stroke();
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    var px = (pointer.x - 0.5);
+    var py = (pointer.y - 0.5);
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+
+      p.x += p.vx;
+      p.y += p.vy;
+      p.phase += p.speed;
+
+      if (p.y < -6) { p.y = H + 6; p.x = Math.random() * W; }
+      if (p.x > W + 6) { p.x = -6; }
+
+      var twinkle = 0.55 + 0.45 * Math.sin(p.phase);
+      var alpha = p.base * twinkle;
+
+      var ox = pointer.active ? px * 26 * p.depth : 0;
+      var oy = pointer.active ? py * 18 * p.depth : 0;
+
+      var x = p.x + ox;
+      var y = p.y + oy;
+
+      if (p.r > 1.15) {
+        var g = ctx.createRadialGradient(x, y, 0, x, y, p.r * 6);
+        g.addColorStop(0, "rgba(" + p.color + ", " + (alpha * 0.5).toFixed(3) + ")");
+        g.addColorStop(1, "rgba(" + p.color + ", 0)");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, p.r * 6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.fillStyle = "rgba(" + p.color + ", " + alpha.toFixed(3) + ")";
+      ctx.beginPath();
+      ctx.arc(x, y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    drawStreaks();
+  }
+
+  var running = true;
+  function loop(now) {
+    if (!running) { return; }
+    if (!lastTime) { lastTime = now || 0; }
+    var dt = (now || 0) - lastTime;
+    lastTime = now || 0;
+
+    nextStreak -= dt;
+    if (nextStreak <= 0) {
+      spawnStreak();
+      nextStreak = rand(7000, 15000);
+    }
+
+    draw();
+    window.requestAnimationFrame(loop);
+  }
+
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      build();
+      if (reduced) { draw(); }
+    }, 180);
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      running = false;
+    } else if (!reduced) {
+      running = true;
+      lastTime = 0;
+      window.requestAnimationFrame(loop);
+    }
+  });
+
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    window.addEventListener("mousemove", function (e) {
+      pointer.x = e.clientX / window.innerWidth;
+      pointer.y = e.clientY / window.innerHeight;
+      pointer.active = true;
+    }, { passive: true });
+  }
+
+  build();
+  if (reduced) {
+    running = false;
+    draw();
+  } else {
+    window.requestAnimationFrame(loop);
+  }
+})();
+</script>
+
+</body>
+</html>
